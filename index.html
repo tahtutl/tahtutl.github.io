@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Konna Clothing OU — Rõivad, aksessuaarid ja e‑pood</title>
+  <meta name="description" content="Konna Clothing OU — kaasaegne rõivapood: naiste, meeste ja unisex kollektsioonid, aksessuaarid, kiire tarne ja paindlikud tagastused." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* must-sinine fashion teema */
+      --bg:#070a12;        /* taust */
+      --bg2:#0b1224;       /* paneel */
+      --ink:#ecf2ff;       /* tekst */
+      --muted:#b8c5e8;     /* sekundaarne */
+      --accent:#22c1ff;    /* sinine */
+      --accent2:#0ea5e9;   /* tugev sinine */
+      --ring:rgba(14,165,233,.35);
+      --card:#0a1020;
+      --border:#1a2544;
+      --success:#22c55e; --error:#ef4444;
+      --radius:18px;
+      --shadow:0 16px 40px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:
+      radial-gradient(900px 500px at 80% -10%, rgba(34,193,255,.15), transparent 60%),
+      radial-gradient(800px 500px at -10% 110%, rgba(34,193,255,.12), transparent 60%),
+      linear-gradient(180deg,#060a14,#0b1224 60%,#070a12)}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin-inline:auto}
+
+    /* header */
+    header{position:sticky;top:0;z-index:40;backdrop-filter:saturate(160%) blur(8px);
+      background:linear-gradient(180deg, rgba(6,10,20,.9), rgba(6,10,20,.55));border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;gap:14px;padding:12px 0}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .navlinks{margin-left:auto;display:flex;gap:12px;flex-wrap:wrap}
+    .navlinks a{opacity:.9;padding:8px 12px;border-radius:10px}
+    .navlinks a:hover{background:rgba(255,255,255,.06)}
+    .cta{margin-left:6px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#031423;font-weight:800;padding:10px 14px;border-radius:12px;border:0}
+
+    /* hero */
+    .hero{padding:70px 0 42px}
+    .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+    @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+    h1{font-size:clamp(28px,4.6vw,46px);line-height:1.1;margin:0 0 12px}
+    .lead{color:var(--muted)}
+    .btns{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid var(--border)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#031423;border:0;font-weight:800}
+    .btn:hover{transform:translateY(-1px)}
+
+    .hero-art{background:linear-gradient(180deg, rgba(34,193,255,.12), rgba(34,193,255,.08));border:1px solid var(--border);
+      border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .hero-art img{width:100%;height:auto;display:block;border-radius:14px}
+
+    /* sections */
+    section{padding:64px 0}
+    h2{font-size:clamp(22px,3.2vw,34px);margin:0 0 10px}
+    .sub{color:var(--muted);margin:0 0 20px}
+
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:900px){.grid3{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.grid3{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(34,193,255,.12);color:#9edbff;border:1px solid var(--ring);font-size:12px}
+
+    /* product grid */
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    @media (max-width:1000px){.products{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:720px){.products{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:460px){.products{grid-template-columns:1fr}}
+    .p{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .p img{width:100%;height:auto;display:block}
+    .p .px{padding:12px}
+    .price{font-weight:800}
+    .tag{font-size:12px;color:var(--muted)}
+
+    /* forms */
+    form{display:grid;gap:12px;margin-top:10px}
+    .field{display:grid;gap:6px}
+    .field label{font-weight:700}
+    .input, textarea{width:100%;padding:12px 14px;border-radius:12px;background:#0c152e;color:var(--ink);
+      border:1px solid var(--border);outline:none}
+    .input:focus, textarea:focus{box-shadow:0 0 0 4px var(--ring);border-color:transparent}
+    .formrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:700px){.formrow{grid-template-columns:1fr}}
+    .status{min-height:1.2em}
+
+    footer{padding:24px 0 30px;color:var(--muted);border-top:1px solid var(--border)}
+    .footnav{opacity:.9;display:flex;gap:12px;flex-wrap:wrap}
+
+    /* modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:80}
+    .modal.open{display:flex}
+    .modal-card{background:linear-gradient(180deg,var(--card),#0a1122);border:1px solid var(--border);border-radius:16px;padding:22px 20px;max-width:520px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .modal-card h3{margin:0 0 8px}
+    .modal-actions{margin-top:14px}
+
+    .to-top{position:fixed;right:18px;bottom:18px;border:0;border-radius:999px;width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#042038;font-weight:900;cursor:pointer;box-shadow:0 12px 30px rgba(34,193,255,.35);display:grid;place-items:center}
+  </style>
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <div class="container nav">
+      <div class="brand" id="brand">Konna Clothing OU</div>
+      <nav class="navlinks" aria-label="Põhinavigatsioon">
+        <a href="#meist">Meist</a>
+        <a href="#teenused">Teenused</a>
+        <a href="#miks">Miks valida meid?</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <button class="cta" data-scroll="#kontakt">Saada päring</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- hero -->
+    <section class="hero">
+      <div class="container wrap">
+        <div>
+          <h1>Kaasaegne rõivapood — kvaliteet, stiil ja kiire tarne</h1>
+          <p class="lead">Naiste, meeste ja unisex kollektsioonid, aksessuaarid ning vabaaja‑tooted. E‑poe mugavus, läbipaistev tarne ja paindlik tagastus.</p>
+          <div class="btns">
+            <a class="btn primary" data-scroll="#tooted">Vaata tooteid</a>
+            <a class="btn" data-scroll="#teenused">Meie teenused</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <!-- Pange siia oma bänner -->
+          <img src="main.jpg" alt="Konna Clothing bänner" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Meist -->
+    <section id="meist">
+      <div class="container">
+        <h2>Meist</h2>
+        <p class="sub">Konna Clothing OU on Tallinnas tegutsev rõivakaubanduse ettevõte. Pakume läbimõeldud valikut igapäevaseks kandmiseks ja hooajalisteks trendideks. Meie eesmärk on lihtne: teha ostmine mugavaks, kiireks ja usaldusväärseks.</p>
+        <div class="grid3">
+          <article class="card"><span class="badge">Valik</span><h3>Rõivad ja aksessuaarid</h3><p>Lai sortiment — põhitooted, kapselkollektsioonid ja hooaja uued tulijad.</p></article>
+          <article class="card"><span class="badge">Kvaliteet</span><h3>Hoolikalt valitud</h3><p>Materjalid ja lõiked, mis peavad vastu ja näevad head välja.</p></article>
+          <article class="card"><span class="badge">Teenindus</span><h3>Kliendikeskne</h3><p>Selged tingimused, nähtavad tähtajad ja lihtne tagastus.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teenused -->
+    <section id="teenused">
+      <div class="container">
+        <h2>Teenused</h2>
+        <div class="grid3">
+          <article class="card"><h3>E‑pood ja kiire tarne</h3><p>Reaalajas laoseis ja tarnepartnerid, kes toimetavad tellimused kiiresti kohale.</p></article>
+          <article class="card"><h3>Lihtne tagastus</h3><p>Paindlik tagastusperiood ning selge juhend — muretult ja läbipaistvalt.</p></article>
+          <article class="card"><h3>Hulgipakkumised</h3><p>Erilahendused ettevõtetele ja kordusostjatele — küsi pakkumist.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Miks valida meid -->
+    <section id="miks">
+      <div class="container">
+        <h2>Miks valida meid?</h2>
+        <div class="grid3">
+          <article class="card"><h3>Lai valik</h3><p>Uudsus + praktilisus: paneme kokku kollektsiooni, mis toimib igapäevas.</p></article>
+          <article class="card"><h3>Kiire logistika</h3><p>Koostöö usaldusväärsete tarnepartneritega üle Eesti.</p></article>
+          <article class="card"><h3>Selged tingimused</h3><p>Läbipaistev hind, tähtaeg ja tagastus — ilma peidetud üllatusteta.</p></article>
+          <article class="card"><h3>Turvalised maksed</h3><p>Kaasaegsed makselahendused ja andmete kaitse.</p></article>
+          <article class="card"><h3>Toetav klienditugi</h3><p>Kiire reageerimine e‑posti teel — lahendused esimesel võimalusel.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontaktivorm (ilma nimeta) -->
+    <section id="kontakt">
+      <div class="container">
+        <h2>Kontakt</h2>
+        <p class="sub">Täitke väljad — vastame esimesel võimalusel. Telefon pole vajalik.</p>
+        <div class="card">
+          <form id="kontaktForm" novalidate>
+            <div class="formrow">
+              <div class="field">
+                <label for="email">E‑post *</label>
+                <input class="input" id="email" name="email" type="email" placeholder="teie@domeen.ee" required />
+              </div>
+              <div class="field">
+                <label for="teema">Teema *</label>
+                <input class="input" id="teema" name="teema" type="text" placeholder="Päringu teema" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="sonum">Sõnum *</label>
+              <textarea id="sonum" name="sonum" rows="4" placeholder="Kirjeldage lühidalt oma soovi" required></textarea>
+            </div>
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn primary" type="submit">Saada sõnum</button>
+              <a class="btn" href="mailto:tahti@konnaclothing.org">Saada e‑kiri</a>
+            </div>
+          </form>
+        </div>
+        <p class="sub" style="margin-top:10px">E‑post: <a href="mailto:tahti@konnaclothing.org">tahti@konnaclothing.org</a> · Asukoht: Tallinn, Eesti</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap">
+      <div>© <span id="year"></span> Konna Clothing OU — kõik õigused kaitstud.</div>
+      <nav class="footnav">
+        <a href="#meist">Meist</a>
+        <span>·</span>
+        <a href="#teenused">Teenused</a>
+        <span>·</span>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+  <button class="to-top" title="Algusesse" aria-label="Algusesse" data-scroll="body">↑</button>
+
+  <!-- Eduka saatmise aken -->
+  <div id="successModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="successTitle" aria-hidden="true">
+    <div class="modal-card">
+      <h3 id="successTitle">Aitäh! Teie taotlus on edukalt saadetud.</h3>
+      <p class="sub">Võtame teiega peagi ühendust e‑posti teel.</p>
+      <div class="modal-actions">
+        <button id="closeModal" class="btn primary" type="button">Sulge</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // aasta
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // sujuv kerimine
+    document.addEventListener('click',(e)=>{
+      const el = e.target.closest('[data-scroll]');
+      if(!el) return; e.preventDefault();
+      const node = el.getAttribute('data-scroll') === 'body' ? document.body : document.querySelector(el.getAttribute('data-scroll'));
+      if(node) node.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+
+    // vorm
+    const form = document.getElementById('kontaktForm');
+    const statusEl = document.getElementById('formStatus');
+    const modal = document.getElementById('successModal');
+    const closeBtn = document.getElementById('closeModal');
+
+    function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); closeBtn.focus(); }
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+    modal.addEventListener('click',(e)=>{ if(e.target===modal) closeModal(); });
+    closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
+
+    form.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      statusEl.textContent='';
+      const fd = new FormData(form);
+      const email = (fd.get('email')||'').toString().trim();
+      const teema = (fd.get('teema')||'').toString().trim();
+      const sonum = (fd.get('sonum')||'').toString().trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        statusEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--error');
+        statusEl.textContent = 'Palun kontrollige e‑posti aadressi.'; return; }
+      if(!teema || !sonum){
+        statusEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--error');
+        statusEl.textContent = 'Palun täitke kõik kohustuslikud väljad.'; return; }
+
+      // edu
+      openModal();
+
+      // mailto fallback
+      const subject = encodeURIComponent('Veebivorm: '+teema);
+      const body = encodeURIComponent(`E‑post: ${email}\n\n${sonum}`);
+      window.location.href = `mailto:tahti@konnaclothing.org?subject=${subject}&body=${body}`;
+
+      form.reset();
+      statusEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--success');
+      statusEl.textContent = 'Sõnum on valmis saatmiseks.';
+    });
+  </script>
+</body>
+</html>
